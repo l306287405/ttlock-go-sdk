@@ -2,4 +2,4 @@
 
 ### 1: 引入
 
-    go get -u github.com/l306287405/ttlock-go-sdk@master
+    go get -u github.com/l306287405/ttlock-go-sdk@main
