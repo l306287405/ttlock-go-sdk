@@ -80,7 +80,7 @@ func (s *Service) UserDelete(req *ReqParams) (resp *Err) {
 		err error
 	)
 	resp = &Err{}
-	err = req.CheckKeys("startDate", "endDate", "pageNo", "pageSize")
+	err = req.CheckKeys("username")
 	if err != nil {
 		resp.failed(err)
 		return
