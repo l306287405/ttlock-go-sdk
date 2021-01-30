@@ -55,7 +55,7 @@ func (s *Service) LockList(req *ReqParams) (resp *LockListResp) {
 		return
 	}
 	req.AddPublicParams(&s.Config)
-	resp.failed(PostForm(u, req, resp))
+	resp.failed(GetRequest(u, req, resp))
 	return
 }
 
@@ -104,7 +104,7 @@ func (s *Service) LockDetail(req *ReqParams) (resp *LockDetailResp) {
 		return
 	}
 	req.AddPublicParams(&s.Config)
-	resp.failed(PostForm(u, req, resp))
+	resp.failed(GetRequest(u, req, resp))
 	return
 }
 
@@ -142,7 +142,7 @@ func (s *Service) LockListKey(req *ReqParams) (resp *LockListKeyResp) {
 		return
 	}
 	req.AddPublicParams(&s.Config)
-	resp.failed(PostForm(u, req, resp))
+	resp.failed(GetRequest(u, req, resp))
 	return
 }
 
@@ -237,7 +237,7 @@ func (s *Service) LockQueryElectricQuantity(req *ReqParams) (resp *LockQueryElec
 		return
 	}
 	req.AddPublicParams(&s.Config)
-	resp.failed(PostForm(u, req, resp))
+	resp.failed(GetRequest(u, req, resp))
 	return
 }
 
@@ -318,7 +318,7 @@ func (s *Service) LockGetPassageModeConfig(req *ReqParams) (resp *LockGetPassage
 		return
 	}
 	req.AddPublicParams(&s.Config)
-	resp.failed(PostForm(u, req, resp))
+	resp.failed(GetRequest(u, req, resp))
 	return
 }
 
@@ -362,7 +362,7 @@ func (s *Service) LockUpgradeCheck(req *ReqParams) (resp *LockUpgradeResp) {
 		return
 	}
 	req.AddPublicParams(&s.Config)
-	resp.failed(PostForm(u, req, resp))
+	resp.failed(GetRequest(u, req, resp))
 	return
 }
 
@@ -380,6 +380,6 @@ func (s *Service) LockUpgradeRecheck(req *ReqParams) (resp *LockUpgradeResp) {
 		return
 	}
 	req.AddPublicParams(&s.Config)
-	resp.failed(PostForm(u, req, resp))
+	resp.failed(GetRequest(u, req, resp))
 	return
 }
