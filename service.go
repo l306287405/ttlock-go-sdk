@@ -136,7 +136,6 @@ func (s *ReqParams) AddPublicParams(cfg *Config) {
 func (s *ReqParams) AddClientIdAndSecretSnake(cfg *Config) {
 	s.Set("client_id", cfg.ClientId)
 	s.Set("client_secret", cfg.ClientSecret)
-	s.SetInt64("date", time.Now().UnixNano())
 }
 
 func (s *ReqParams) AddPublicParamsSnake(cfg *Config) {
