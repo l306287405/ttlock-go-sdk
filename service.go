@@ -125,12 +125,12 @@ func (s *ReqParams) Sign(secret string) {
 func (s *ReqParams) AddClientIdAndSecret(cfg *Config) {
 	s.Set("clientId", cfg.ClientId)
 	s.Set("clientSecret", cfg.ClientSecret)
-	s.SetInt64("date", time.Now().UnixNano())
+	s.SetInt64("date", time.Now().Unix()/1e6)
 }
 
 func (s *ReqParams) AddPublicParams(cfg *Config) {
 	s.Set("clientId", cfg.ClientId)
-	s.SetInt64("date", time.Now().UnixNano())
+	s.SetInt64("date", time.Now().UnixNano()/1e6)
 }
 
 func (s *ReqParams) AddClientIdAndSecretSnake(cfg *Config) {
