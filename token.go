@@ -23,7 +23,7 @@ func (s *Service) AccessToken(req *ReqParams) (resp *Oauth2TokenResp) {
 		return
 	}
 	req.Set("grant_type", "password")
-	req.AddAppIdAndSecretSnake(&s.Config)
+	req.AddClientIdAndSecretSnake(&s.Config)
 	resp.failed(PostForm(u, req, resp))
 	return
 }
@@ -42,7 +42,7 @@ func (s *Service) RefreshToken(req *ReqParams) (resp *Oauth2TokenResp) {
 		return
 	}
 	req.Set("grant_type", "refresh_token")
-	req.AddAppIdAndSecretSnake(&s.Config)
+	req.AddClientIdAndSecretSnake(&s.Config)
 	resp.failed(PostForm(u, req, resp))
 	return
 }

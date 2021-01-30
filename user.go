@@ -18,7 +18,7 @@ func (s *Service) UserRegister(req *ReqParams) (resp *UserRegisterResp) {
 		resp.failed(err)
 		return
 	}
-	req.AddAppIdAndSecret(&s.Config)
+	req.AddClientIdAndSecret(&s.Config)
 	resp.failed(PostForm(u, req, resp))
 	return
 }
@@ -36,7 +36,7 @@ func (s *Service) UserResetPassword(req *ReqParams) (resp *Err) {
 		resp.failed(err)
 		return
 	}
-	req.AddAppIdAndSecret(&s.Config)
+	req.AddClientIdAndSecret(&s.Config)
 
 	resp.failed(PostForm(u, req, resp))
 	return
@@ -67,7 +67,7 @@ func (s *Service) UserList(req *ReqParams) (resp *UserListResp) {
 		resp.failed(err)
 		return
 	}
-	req.AddAppIdAndSecret(&s.Config)
+	req.AddClientIdAndSecret(&s.Config)
 	resp.failed(PostForm(u, req, resp))
 	return
 }
@@ -85,7 +85,7 @@ func (s *Service) UserDelete(req *ReqParams) (resp *Err) {
 		resp.failed(err)
 		return
 	}
-	req.AddAppIdAndSecret(&s.Config)
+	req.AddClientIdAndSecret(&s.Config)
 	resp.failed(PostForm(u, req, resp))
 	return
 }

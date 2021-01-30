@@ -22,17 +22,16 @@ const (
 
 //配置
 type Config struct {
-	AppId      string
-	AppSecret  string
-	AuthFactor string
+	ClientId      string
+	ClientSecret  string
 }
 
 func (s *Config) check() error {
-	if s.AppId == "" {
-		return errors.New("AppId is invalid")
+	if s.ClientId == "" {
+		return errors.New("ClientId is invalid")
 	}
-	if s.AppSecret == "" {
-		return errors.New("AppSecret is invalid")
+	if s.ClientSecret == "" {
+		return errors.New("ClientSecret is invalid")
 	}
 	return nil
 }
@@ -122,25 +121,25 @@ func (s *ReqParams) Sign(secret string) {
 	s.Set("sign", strings.ToLower(hex.EncodeToString(cipherStr)))
 }
 
-func (s *ReqParams) AddAppIdAndSecret(cfg *Config) {
-	s.Set("clientId", cfg.AppId)
-	s.Set("clientSecret", cfg.AppSecret)
+func (s *ReqParams) AddClientIdAndSecret(cfg *Config) {
+	s.Set("clientId", cfg.ClientId)
+	s.Set("clientSecret", cfg.ClientSecret)
 	s.SetInt64("date", time.Now().UnixNano())
 }
 
 func (s *ReqParams) AddPublicParams(cfg *Config) {
-	s.Set("clientId", cfg.AppId)
+	s.Set("clientId", cfg.ClientId)
 	s.SetInt64("date", time.Now().UnixNano())
 }
 
-func (s *ReqParams) AddAppIdAndSecretSnake(cfg *Config) {
-	s.Set("client_id", cfg.AppId)
-	s.Set("client_secret", cfg.AppSecret)
+func (s *ReqParams) AddClientIdAndSecretSnake(cfg *Config) {
+	s.Set("client_id", cfg.ClientId)
+	s.Set("client_secret", cfg.ClientSecret)
 	s.SetInt64("date", time.Now().UnixNano())
 }
 
 func (s *ReqParams) AddPublicParamsSnake(cfg *Config) {
-	s.Set("client_id", cfg.AppId)
+	s.Set("client_id", cfg.ClientId)
 	s.SetInt64("date", time.Now().UnixNano())
 }
 
