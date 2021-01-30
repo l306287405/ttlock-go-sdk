@@ -45,7 +45,7 @@ type LockListItem struct {
 //https://open.ttlock.com/doc/api/v3/lock/list
 func (s *Service) LockList(req *ReqParams) (resp *LockListResp) {
 	var (
-		u   = V3_URL + "/lock/initialize"
+		u   = V3_URL + "/lock/list"
 		err error
 	)
 	resp = &LockListResp{}
