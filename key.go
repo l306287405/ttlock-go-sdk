@@ -38,7 +38,7 @@ type KeyDetail struct {
 	LockName           string       `json:"lockName"`
 	LockAlias          string       `json:"lockAlias"`
 	LockMac            string       `json:"lockMac"`
-	NoKeyPwd           string       `json:"noKeyPwd"`
+	NoKeyPwd           int          `json:"noKeyPwd"`
 	DeletePwd          string       `json:"deletePwd"`
 	ElectricQuantity   int          `json:"electricQuantity"`
 	LockVersion        *LockVersion `json:"lockVersion"`
@@ -53,7 +53,7 @@ type KeyDetail struct {
 
 //发送钥匙 如果是微信小程序调用则IsWxApp传true
 //https://open.ttlock.com/doc/api/v3/key/list
-func (s *Service) KeyList(req *ReqParams,IsWxApp bool) (resp *KeyListResp) {
+func (s *Service) KeyList(req *ReqParams, IsWxApp bool) (resp *KeyListResp) {
 	var (
 		u   = V3_URL + "/key/list"
 		err error
@@ -64,8 +64,8 @@ func (s *Service) KeyList(req *ReqParams,IsWxApp bool) (resp *KeyListResp) {
 		resp.failed(err)
 		return
 	}
-	if IsWxApp{
-		req.SetInt("sdkVersion",2)
+	if IsWxApp {
+		req.SetInt("sdkVersion", 2)
 	}
 	req.AddPublicParams(&s.Config)
 	resp.failed(PostForm(u, req, resp))
@@ -121,7 +121,7 @@ func (s *Service) KeyChangePeriod(req *ReqParams) (resp *Err) {
 		err error
 	)
 	resp = &Err{}
-	err = req.CheckKeys("accessToken", "keyId","startDate","endDate")
+	err = req.CheckKeys("accessToken", "keyId", "startDate", "endDate")
 	if err != nil {
 		resp.failed(err)
 		return

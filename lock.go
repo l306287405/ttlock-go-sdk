@@ -68,7 +68,7 @@ type LockDetailResp struct {
 	LockKey            string       `json:"lockKey"`
 	LockFlagPos        int          `json:"lockFlagPos"`
 	AdminPwd           string       `json:"adminPwd"`
-	NoKeyPwd           string       `json:"noKeyPwd"`
+	NoKeyPwd           int          `json:"noKeyPwd"`
 	DeletePwd          string       `json:"deletePwd"`
 	AesKeyStr          string       `json:"aesKeyStr"`
 	LockVersion        *LockVersion `json:"lockVersion"`
@@ -342,10 +342,10 @@ func (s *Service) LockUpdateLockData(req *ReqParams) (resp *Err) {
 
 type LockUpgradeResp struct {
 	Err
-	NeedUpgrade int8 `json:"needUpgrade"`
-	FirmwareInfo string `json:"firmwareInfo"`
+	NeedUpgrade     int8   `json:"needUpgrade"`
+	FirmwareInfo    string `json:"firmwareInfo"`
 	FirmwarePackage string `json:"firmwarePackage"`
-	Version string `json:"version"`
+	Version         string `json:"version"`
 }
 
 //检测锁固件是否需要升级
@@ -374,7 +374,7 @@ func (s *Service) LockUpgradeRecheck(req *ReqParams) (resp *LockUpgradeResp) {
 		err error
 	)
 	resp = &LockUpgradeResp{}
-	err = req.CheckKeys("accessToken", "lockId","firmwareInfo")
+	err = req.CheckKeys("accessToken", "lockId", "firmwareInfo")
 	if err != nil {
 		resp.failed(err)
 		return
