@@ -13,6 +13,7 @@ import (
 )
 
 const (
+	URL = "https://api.ttlock.com"
 	V3_URL = "https://api.ttlock.com/v3"
 )
 

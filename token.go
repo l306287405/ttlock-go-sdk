@@ -13,7 +13,7 @@ type Oauth2TokenResp struct {
 //https://open.ttlock.com/doc/oauth2
 func (s *Service) AccessToken(req *ReqParams) (resp *Oauth2TokenResp) {
 	var (
-		u   = V3_URL + "/oauth2/token"
+		u   = URL + "/oauth2/token"
 		err error
 	)
 	resp = &Oauth2TokenResp{}
@@ -32,7 +32,7 @@ func (s *Service) AccessToken(req *ReqParams) (resp *Oauth2TokenResp) {
 //https://open.ttlock.com/doc/oauth2/refreshToken
 func (s *Service) RefreshToken(req *ReqParams) (resp *Oauth2TokenResp) {
 	var (
-		u   = V3_URL + "/oauth2/token"
+		u   = URL + "/oauth2/token"
 		err error
 	)
 	resp = &Oauth2TokenResp{}
