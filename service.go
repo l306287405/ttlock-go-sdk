@@ -13,18 +13,18 @@ import (
 )
 
 const (
-	URL = "https://api.ttlock.com"
-	V3_URL = "https://api.ttlock.com/v3"
+	URL    = "https://cnapi.ttlock.com"
+	V3_URL = "https://cnapi.ttlock.com/v3"
 )
 
 const (
 	SUCCESS = 200
 )
 
-//配置
+// 配置
 type Config struct {
-	ClientId      string
-	ClientSecret  string
+	ClientId     string
+	ClientSecret string
 }
 
 func (s *Config) check() error {
@@ -37,7 +37,7 @@ func (s *Config) check() error {
 	return nil
 }
 
-//服务
+// 服务
 type Service struct {
 	Config
 }
@@ -50,7 +50,7 @@ func NewService(cfg Config) (*Service, error) {
 	return &Service{cfg}, nil
 }
 
-//参数类型
+// 参数类型
 type ReqParams struct {
 	url.Values
 }
@@ -86,7 +86,7 @@ func (s *ReqParams) SetInt8(key string, val int8) {
 }
 
 func (s *ReqParams) SetFloat(key string, val float32) {
-	s.SetFloat64(key,float64(val))
+	s.SetFloat64(key, float64(val))
 }
 
 func (s *ReqParams) SetFloat64(key string, val float64) {
@@ -94,10 +94,10 @@ func (s *ReqParams) SetFloat64(key string, val float64) {
 }
 
 func (s *ReqParams) SetDouble(key string, val float64) {
-	s.SetFloat64(key,val)
+	s.SetFloat64(key, val)
 }
 
-//获取参数签名
+// 获取参数签名
 func (s *ReqParams) Sign(secret string) {
 	var (
 		keys      []string
